@@ -1,0 +1,40 @@
+<Grid
+    xmlns="http://schemas.wsick.com/fayde"
+    xmlns:x="http://schemas.wsick.com/fayde/x"
+    xmlns:res="Resources"
+    xmlns:exp="lib:Fayde.Experimental">
+    <Grid.Resources>
+        <Style x:Key="GridCellStyle" TargetType="exp:GridCell">
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="FontFamily" Value="'Helvetica Nueue', Helvetica, Arial, sans-serif" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <res:WeekConverter x:Key="weekConverter" />
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition />
+    </Grid.RowDefinitions>
+    <exp:GridHeadersControl ItemsControl="{Binding ElementName=ItemsControl}">
+        <exp:GridHeader Header="Week" />
+        <exp:GridHeader Header="Date" />
+        <exp:GridHeader Header="Start" />
+        <exp:GridHeader Header="End" />
+        <exp:GridHeader Header="Hours" />
+        <exp:GridHeader Header="Rate" />
+        <exp:GridHeader Header="Revenue" />
+    </exp:GridHeadersControl>
+    <exp:GridItemsControl x:Name="ItemsControl" ItemsSource="{Binding Entries}" Grid.Row="1">
+        <exp:GridItemsControl.Adorners>
+            <exp:HoveredRowAdorner Background="#F1F1F1" />
+            <exp:SelectedRowAdorner Background="#B2E0F4" />
+        </exp:GridItemsControl.Adorners>
+        <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource weekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Date, StringFormat='{0:d}'}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Start, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding End, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Hours, StringFormat='{0:n2}'}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Rate, StringFormat='{0:n2}'}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Revenue, StringFormat={0:c2}}" CellStyle="{StaticResource GridCellStyle}" />
+    </exp:GridItemsControl>
+</Grid>

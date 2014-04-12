@@ -1,0 +1,41 @@
+<Application
+    xmlns="http://schemas.wsick.com/fayde"
+    xmlns:x="http://schemas.wsick.com/fayde/x"
+    xmlns:vms="ViewModels"
+    xmlns:views="Views"
+    Theme="Metro">
+    <Application.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="'Helvetica Nueue', Helvetica, Arial, sans-serif" />
+        </Style>
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="'Helvetica Nueue', Helvetica, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <DropShadowEffect x:Key="PageEffect" Color="Black" BlurRadius="25" ShadowDepth="0" Opacity="0.1" />
+    </Application.Resources>
+    <Grid x:Name="LayoutRoot" Background="#e5e5e5">
+        <Grid Width="880" HorizontalAlignment="Center">
+            <Grid.DataContext>
+                <vms:MainViewModel />
+            </Grid.DataContext>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Background="#484848">
+                <Grid Margin="6,6" VerticalAlignment="Center">
+                    <TextBlock Text="Timesheet App" HorizontalAlignment="Left" Style="{StaticResource TitleStyle}" FontWeight="Bold" />
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <Image Stretch="None" Source="img/logo-company.png" HorizontalAlignment="Left" Margin="10" />
+            </Grid>
+            <Border Effect="{StaticResource PageEffect}" Grid.Row="2" Background="White" Margin="0,0,0,20">
+                <ContentControl ContentUri="Views/TimesheetGrid.fayde" Margin="10" />
+            </Border>
+        </Grid>
+    </Grid>
+</Application>
