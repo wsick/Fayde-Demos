@@ -180,3 +180,5 @@ TimesheetApp/TimesheetApp/Resources/WeekConverter.js
 TimesheetApp/TimesheetApp/Resources/WeekConverter.js.map
 TimesheetApp/TimesheetApp/ViewModels/MainViewModel.js
 TimesheetApp/TimesheetApp/ViewModels/MainViewModel.js.map
+TimesheetApp/TimesheetApp/Resources/DayOfWeekConverter.js
+TimesheetApp/TimesheetApp/Resources/DayOfWeekConverter.js.map

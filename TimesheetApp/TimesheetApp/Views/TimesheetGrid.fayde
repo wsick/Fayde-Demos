@@ -10,6 +10,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <res:WeekConverter x:Key="weekConverter" />
+        <res:DayOfWeekConverter x:Key="dayOfWeekConverter" />
     </Grid.Resources>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
@@ -18,6 +19,7 @@
     <exp:GridHeadersControl ItemsControl="{Binding ElementName=ItemsControl}">
         <exp:GridHeader />
         <exp:GridHeader Header="Week" />
+        <exp:GridHeader Header="Day"/>
         <exp:GridHeader Header="Date" />
         <exp:GridHeader Header="Start" />
         <exp:GridHeader Header="End" />
@@ -38,6 +40,7 @@
             </exp:GridTemplateColumn.CellTemplate>
         </exp:GridTemplateColumn>
         <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource weekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource dayOfWeekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" Binding="{Binding Date, StringFormat='{0:d}'}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" Binding="{Binding Start, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" Binding="{Binding End, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
