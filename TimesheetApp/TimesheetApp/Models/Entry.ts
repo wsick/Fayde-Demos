@@ -23,6 +23,15 @@
                 break;
         }
     }
+
+    static FromJson(json: any): Entry {
+        var e = new Entry();
+        e.Date = new DateTime(json.Date);
+        e.Start = new TimeSpan(json.Start);
+        e.End = new TimeSpan(json.End);
+        e.Rate = json.Rate || 0;
+        return e;
+    }
 }
 Fayde.MVVM.NotifyProperties(Entry, [
     "Date",

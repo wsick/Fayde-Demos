@@ -16,6 +16,7 @@
         <RowDefinition />
     </Grid.RowDefinitions>
     <exp:GridHeadersControl ItemsControl="{Binding ElementName=ItemsControl}">
+        <exp:GridHeader />
         <exp:GridHeader Header="Week" />
         <exp:GridHeader Header="Date" />
         <exp:GridHeader Header="Start" />
@@ -29,6 +30,13 @@
             <exp:HoveredRowAdorner Background="#F1F1F1" />
             <exp:SelectedRowAdorner Background="#B2E0F4" />
         </exp:GridItemsControl.Adorners>
+        <exp:GridTemplateColumn>
+            <exp:GridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                    <Image Source="img/edit.png" Width="16" Height="16" />
+                </DataTemplate>
+            </exp:GridTemplateColumn.CellTemplate>
+        </exp:GridTemplateColumn>
         <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource weekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" Binding="{Binding Date, StringFormat='{0:d}'}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" Binding="{Binding Start, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />

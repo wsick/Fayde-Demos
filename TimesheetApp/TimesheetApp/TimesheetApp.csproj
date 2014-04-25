@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="default.html" />
+    <Content Include="img\edit.png" />
     <Content Include="img\logo-company.png" />
     <Content Include="lib\Fayde.Controls\Fayde.Controls.d.ts" />
     <Content Include="lib\Fayde.Controls\Fayde.Controls.js" />
