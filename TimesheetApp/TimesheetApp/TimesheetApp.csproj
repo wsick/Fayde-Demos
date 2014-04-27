@@ -24,13 +24,13 @@
     <Content Include="lib\Fayde.Controls\Fayde.Controls.js" />
     <Content Include="lib\Fayde.Controls\Themes\Default.theme.xml" />
     <Content Include="lib\Fayde.Controls\Themes\Metro.theme.xml" />
+    <TypeScriptCompile Include="ViewModels\MainViewModel.ts" />
+    <TypeScriptCompile Include="Models\Entry.ts" />
+    <TypeScriptCompile Include="Resources\WeekConverter.ts" />
     <Content Include="lib\Fayde.Experimental\Fayde.Experimental.d.ts" />
     <Content Include="lib\Fayde.Experimental\Fayde.Experimental.js" />
     <Content Include="lib\Fayde.Experimental\Themes\Default.theme.xml" />
     <Content Include="lib\Fayde.Experimental\Themes\Metro.theme.xml" />
-    <TypeScriptCompile Include="ViewModels\MainViewModel.ts" />
-    <TypeScriptCompile Include="Models\Entry.ts" />
-    <TypeScriptCompile Include="Resources\WeekConverter.ts" />
     <Content Include="lib\Fayde\Fayde.d.ts" />
     <Content Include="lib\Fayde\Fayde.js" />
     <Content Include="lib\Fayde\Themes\Default.theme.xml" />
