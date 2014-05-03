@@ -35,7 +35,7 @@
         <exp:GridTemplateColumn>
             <exp:GridTemplateColumn.CellTemplate>
                 <DataTemplate>
-                    <Image Source="img/edit.png" Width="16" Height="16" />
+                    <Image Source="img/edit.png" Width="16" Height="16" MouseLeftButtonDown="{EventBinding Command={Binding Path=EditCommand, RelativeSource={RelativeSource ItemsControlParent}}, CommandParameter={Binding}}" />
                 </DataTemplate>
             </exp:GridTemplateColumn.CellTemplate>
         </exp:GridTemplateColumn>
