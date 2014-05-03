@@ -32,6 +32,13 @@
     <Content Include="lib\Fayde.Experimental\Fayde.Experimental.js" />
     <Content Include="lib\Fayde.Experimental\Themes\Default.theme.xml" />
     <Content Include="lib\Fayde.Experimental\Themes\Metro.theme.xml" />
+    <Content Include="lib\Fayde\Fayde.d.ts" />
+    <Content Include="lib\Fayde\Fayde.js" />
+    <Content Include="lib\Fayde\Themes\Default.theme.xml" />
+    <Content Include="lib\Fayde\Themes\Metro.theme.xml" />
+    <Content Include="lib\requirejs\require.d.ts" />
+    <Content Include="lib\requirejs\require.js" />
+    <Content Include="lib\requirejs\text.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
