@@ -62,6 +62,8 @@
     <Content Include="img\check-on.png" />
     <TypeScriptCompile Include="Models\TodoItem.ts" />
     <TypeScriptCompile Include="ViewModels\MainViewModel.ts" />
+    <Content Include="img\toggle-all-on.png" />
+    <Content Include="img\toggle-all.png" />
     <Content Include="lib\Fayde\Fayde.d.ts" />
     <Content Include="lib\Fayde\Fayde.js" />
     <Content Include="lib\Fayde\Themes\Default.theme.xml" />
@@ -73,7 +75,6 @@
     <Content Include="default.fap">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\home.fayde" />
     <Content Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -81,6 +82,9 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
