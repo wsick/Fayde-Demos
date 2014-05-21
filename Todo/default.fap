@@ -5,72 +5,7 @@
     xmlns:vms="ViewModels"
     ThemeName="Metro">
     <Application.Resources>
-        <Style TargetType="ToggleButton" x:Key="CheckButton">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToggleButton">
-                        <Grid>
-                            <vsm:VisualStateManager.VisualStateGroups>
-                                <vsm:VisualStateGroup x:Name="CommonStates">
-                                    <vsm:VisualState x:Name="Normal" />
-                                    <vsm:VisualState x:Name="MouseOver" />
-                                    <vsm:VisualState x:Name="Pressed" />
-                                    <vsm:VisualState x:Name="Disabled" />
-                                </vsm:VisualStateGroup>
-                                <vsm:VisualStateGroup x:Name="CheckStates">
-                                    <vsm:VisualState x:Name="Checked">
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="OffImage" Storyboard.TargetProperty="Opacity" Duration="0" To="0" />
-                                            <DoubleAnimation Storyboard.TargetName="OnImage" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
-                                        </Storyboard>
-                                    </vsm:VisualState>
-                                    <vsm:VisualState x:Name="Unchecked" />
-                                </vsm:VisualStateGroup>
-                                <vsm:VisualStateGroup x:Name="FocusStates">
-                                    <vsm:VisualState x:Name="Focused" />
-                                    <vsm:VisualState x:Name="Unfocused" />
-                                </vsm:VisualStateGroup>
-                            </vsm:VisualStateManager.VisualStateGroups>
-                            <Image x:Name="OffImage" Source="img/check-off.png" Opacity="1" />
-                            <Image x:Name="OnImage" Source="img/check-on.png" Opacity="0" />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="ToggleButton" x:Key="ToggleAllButton">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToggleButton">
-                        <Grid>
-                            <vsm:VisualStateManager.VisualStateGroups>
-                                <vsm:VisualStateGroup x:Name="CommonStates">
-                                    <vsm:VisualState x:Name="Normal" />
-                                    <vsm:VisualState x:Name="MouseOver" />
-                                    <vsm:VisualState x:Name="Pressed" />
-                                    <vsm:VisualState x:Name="Disabled" />
-                                </vsm:VisualStateGroup>
-                                <vsm:VisualStateGroup x:Name="CheckStates">
-                                    <vsm:VisualState x:Name="Checked">
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="OffImage" Storyboard.TargetProperty="Opacity" Duration="0" To="0" />
-                                            <DoubleAnimation Storyboard.TargetName="OnImage" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
-                                        </Storyboard>
-                                    </vsm:VisualState>
-                                    <vsm:VisualState x:Name="Unchecked" />
-                                </vsm:VisualStateGroup>
-                                <vsm:VisualStateGroup x:Name="FocusStates">
-                                    <vsm:VisualState x:Name="Focused" />
-                                    <vsm:VisualState x:Name="Unfocused" />
-                                </vsm:VisualStateGroup>
-                            </vsm:VisualStateManager.VisualStateGroups>
-                            <Image x:Name="OffImage" Source="img/toggle-all.png" Opacity="1" />
-                            <Image x:Name="OnImage" Source="img/toggle-all-on.png" Opacity="0" />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary Source="Resources/Styles.fayde" />
     </Application.Resources>
     <Grid x:Name="LayoutRoot" Background="#EAEAEA">
         <Grid.DataContext>
@@ -102,16 +37,19 @@
                             <Border Background="#05000000">
                                 <Grid Margin="0,18">
                                     <ToggleButton Style="{StaticResource ToggleAllButton}" Width="17" Height="16" HorizontalAlignment="Left" Margin="10,0,0,0" IsChecked="{Binding IsAllComplete, Mode=TwoWay}" />
-                                    <TextBox Margin="60,0,20,0" Watermark="What needs to be done?" Text="{Binding ActiveText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="{EventBinding AddTodo}" />
+                                    <TextBox Style="{StaticResource RawTextBox}" FontSize="24" Foreground="#4D4D4D" Margin="60,0,20,0" Watermark="What needs to be done?" 
+                                             Text="{Binding ActiveText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="{EventBinding AddTodo}" />
                                 </Grid>
                             </Border>
                             <ItemsControl ItemsSource="{Binding Items}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Margin="0,18">
-                                            <ToggleButton Style="{StaticResource CheckButton}" Width="17" Height="16" HorizontalAlignment="Left" Margin="10,0,0,0" IsChecked="{Binding IsComplete, Mode=TwoWay}" />
-                                            <TextBlock Text="{Binding Text}" Margin="60,0,20,0" />
-                                        </Grid>
+                                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0">
+                                            <Grid Margin="0,18">
+                                                <ToggleButton Style="{StaticResource CheckButton}" Width="17" Height="16" HorizontalAlignment="Left" Margin="10,0,0,0" IsChecked="{Binding IsComplete, Mode=TwoWay}" />
+                                                <TextBlock Text="{Binding Text}" Margin="60,0,20,0" Foreground="#4D4D4D" FontSize="24" />
+                                            </Grid>
+                                        </Border>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
