@@ -11,8 +11,9 @@
         <Grid.DataContext>
             <vms:MainViewModel />
         </Grid.DataContext>
-        <StackPanel HorizontalAlignment="Center" MinWidth="400">
-            <TextBlock Text="todos" HorizontalAlignment="Center" />
+        <StackPanel HorizontalAlignment="Center" MinWidth="550">
+            <TextBlock Text="todos" HorizontalAlignment="Center" Foreground="#4C888888"
+                       FontSize="70" FontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" />
             <Grid Panel.ZIndex="1">
                 <Border Background="White" Margin="4,0">
                     <Border.Effect>
@@ -41,10 +42,10 @@
                                              Text="{Binding ActiveText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="{EventBinding AddTodo}" />
                                 </Grid>
                             </Border>
-                            <ItemsControl ItemsSource="{Binding Items}">
+                            <ItemsControl ItemsSource="{Binding FilteredItems}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Border BorderBrush="Gray" BorderThickness="0,1,0,0">
+                                        <Border BorderBrush="#BBBBBB" BorderThickness="0,1,0,0">
                                             <Grid Margin="0,18">
                                                 <ToggleButton Style="{StaticResource CheckButton}" Width="17" Height="16" HorizontalAlignment="Left" Margin="10,0,0,0" IsChecked="{Binding IsComplete, Mode=TwoWay}" />
                                                 <TextBlock Text="{Binding Text}" Margin="60,0,20,0" Foreground="#4D4D4D" FontSize="24" />
@@ -72,9 +73,9 @@
                         <TextBlock Text=" items left"  Foreground="#777777" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Column="1">
-                        <TextBlock Cursor="Hand" Margin="5,0" Text="All" Foreground="#777777" />
-                        <TextBlock Cursor="Hand" Margin="5,0" Text="Active" Foreground="#777777" />
-                        <TextBlock Cursor="Hand" Margin="5,0" Text="Completed" Foreground="#777777" />
+                        <RadioButton Content="All" IsChecked="{Binding IsAllFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
+                        <RadioButton Content="Active" IsChecked="{Binding IsActiveFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
+                        <RadioButton Content="Completed" IsChecked="{Binding IsCompletedFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
                     </StackPanel>
                 </Grid>
             </Border>

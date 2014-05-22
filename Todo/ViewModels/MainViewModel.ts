@@ -4,7 +4,11 @@ import TodoItem = require("../Models/TodoItem");
 
 class MainViewModel extends Fayde.MVVM.ViewModelBase {
     Items = new Fayde.Collections.DeepObservableCollection<TodoItem>();
-    ActiveText: string = "";
+    FilteredItems = new Fayde.Collections.DeepObservableCollection<TodoItem>();
+    ActiveText = "";
+    IsAllFilter = true;
+    IsActiveFilter = false;
+    IsCompletedFilter = false;
 
     constructor() {
         super();
@@ -23,6 +27,7 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     private _OnItemPropertyChanged(sender: any, e: Fayde.Collections.ItemPropertyChangedEventArgs<TodoItem>) {
         this.OnPropertyChanged("NumItemsLeft");
         this.OnPropertyChanged("IsAllComplete");
+        this.UpdateFilter();
     }
 
     get IsAllComplete(): boolean {
@@ -48,10 +53,34 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
         var item = new TodoItem();
         item.Text = this.ActiveText;
         this.Items.Add(item);
+        if (this.IsAllFilter || this.IsActiveFilter)
+            this.FilteredItems.Add(item);
         this.ActiveText = "";
         this.OnPropertyChanged("NumItemsLeft");
         this.OnPropertyChanged("IsAllComplete");
     }
+
+    UpdateFilter() {
+        this.FilteredItems.Clear();
+        if (this.IsAllFilter) {
+            this.FilteredItems.AddRange(this.Items.ToArray());
+        } else if (this.IsActiveFilter) {
+            this.FilteredItems.AddRange(this.Items.ToArray().filter(i => !i.IsComplete));
+        } else if (this.IsCompletedFilter) {
+            this.FilteredItems.AddRange(this.Items.ToArray().filter(i => i.IsComplete));
+        }
+    }
+
+    OnPropertyChanged(propertyName: string) {
+        super.OnPropertyChanged(propertyName);
+        switch (propertyName) {
+            case "IsAllFilter":
+            case "IsActiveFilter":
+            case "IsCompletedFilter":
+                this.UpdateFilter();
+                break;
+        }
+    }
 }
-Fayde.MVVM.NotifyProperties(MainViewModel, ["Items", "ActiveText"]);
+Fayde.MVVM.NotifyProperties(MainViewModel, ["Items", "ActiveText", "IsAllFilter", "IsActiveFilter", "IsCompletedFilter"]);
 export = MainViewModel; 

@@ -82,4 +82,40 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="RadioButton" x:Key="FilterRadioButton">
+        <Setter Property="Foreground" Value="#777777" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="5,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualState x:Name="Normal" />
+                                <vsm:VisualState x:Name="MouseOver" />
+                                <vsm:VisualState x:Name="Pressed" />
+                                <vsm:VisualState x:Name="Disabled" />
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="CheckStates">
+                                <vsm:VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="UncheckedTextBlock" Storyboard.TargetProperty="Opacity" Duration="0" To="0" />
+                                        <DoubleAnimation Storyboard.TargetName="CheckedTextBlock" Storyboard.TargetProperty="Opacity" Duration="0" To="1" />
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Unchecked" />
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualState x:Name="Focused" />
+                                <vsm:VisualState x:Name="Unfocused" />
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <TextBlock x:Name="UncheckedTextBlock" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" />
+                        <TextBlock x:Name="CheckedTextBlock" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" FontWeight="Bold" Opacity="0" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
