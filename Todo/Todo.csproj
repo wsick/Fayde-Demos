@@ -64,6 +64,7 @@
     <TypeScriptCompile Include="ViewModels\MainViewModel.ts" />
     <Content Include="img\toggle-all-on.png" />
     <Content Include="img\toggle-all.png" />
+    <TypeScriptCompile Include="ViewModels\FilterObject.ts" />
     <Content Include="lib\Fayde\Fayde.d.ts" />
     <Content Include="lib\Fayde\Fayde.js" />
     <Content Include="lib\Fayde\Themes\Default.theme.xml" />
@@ -71,7 +72,6 @@
     <Content Include="lib\requirejs\require.d.ts" />
     <Content Include="lib\requirejs\require.js" />
     <Content Include="lib\requirejs\text.js" />
-    <TypeScriptCompile Include="MVVM\FilterObject.ts" />
     <Content Include="web.config" />
     <Content Include="default.fap">
       <SubType>Designer</SubType>
@@ -87,8 +87,6 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

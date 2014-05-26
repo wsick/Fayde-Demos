@@ -189,3 +189,5 @@ Todo/ViewModels/MainViewModel.js
 Todo/ViewModels/MainViewModel.js.map
 Todo/MVVM/FilterObject.js
 Todo/MVVM/FilterObject.js.map
+Todo/ViewModels/FilterObject.js
+Todo/ViewModels/FilterObject.js.map

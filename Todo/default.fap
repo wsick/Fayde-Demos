@@ -73,9 +73,9 @@
                         <TextBlock Text=" items left"  Foreground="#777777" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Column="1">
-                        <RadioButton Content="All" IsChecked="{Binding IsAllFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
-                        <RadioButton Content="Active" IsChecked="{Binding IsActiveFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
-                        <RadioButton Content="Completed" IsChecked="{Binding IsCompletedFilter, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
+                        <RadioButton Content="All" IsChecked="{Binding Filter.IsAll, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
+                        <RadioButton Content="Active" IsChecked="{Binding Filter.IsActive, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
+                        <RadioButton Content="Completed" IsChecked="{Binding Filter.IsCompleted, Mode=TwoWay}" GroupName="Filter" Style="{StaticResource FilterRadioButton}" />
                     </StackPanel>
                 </Grid>
             </Border>

@@ -1,24 +1,17 @@
 ﻿/// <reference path="../lib/Fayde/Fayde.d.ts" />
 
 import TodoItem = require("../Models/TodoItem");
-import FilterObject = require("../MVVM/FilterObject");
+import FilterObject = require("../ViewModels/FilterObject");
 
 class MainViewModel extends Fayde.MVVM.ViewModelBase {
     Items = new Fayde.Collections.DeepObservableCollection<TodoItem>();
     Filter: FilterObject;
     ActiveText = "";
-    IsAllFilter = true;
-    IsActiveFilter = false;
-    IsCompletedFilter = false;
 
     constructor() {
         super();
+        Object.defineProperty(this, "Filter", { value: new FilterObject(this.Items), writable: false });
         this.Items.ItemPropertyChanged.Subscribe(this._OnItemPropertyChanged, this);
-        this.Filter = new FilterObject(this.Items, (item: TodoItem) => {
-            if (this.IsActiveFilter) return !item.IsComplete;
-            if (this.IsCompletedFilter) return item.IsComplete;
-            return true;
-        });
     }
     
     get NumItemsLeft(): number {
@@ -62,18 +55,6 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
         this.OnPropertyChanged("NumItemsLeft");
         this.OnPropertyChanged("IsAllComplete");
     }
-
-    OnPropertyChanged(propertyName: string) {
-        super.OnPropertyChanged(propertyName);
-        switch (propertyName) {
-            case "IsAllFilter":
-            case "IsActiveFilter":
-            case "IsCompletedFilter":
-                if (this.Filter)
-                    this.Filter.Update();
-                break;
-        }
-    }
 }
-Fayde.MVVM.NotifyProperties(MainViewModel, ["Items", "ActiveText", "IsAllFilter", "IsActiveFilter", "IsCompletedFilter"]);
+Fayde.MVVM.NotifyProperties(MainViewModel, ["Items", "ActiveText"]);
 export = MainViewModel; 
