@@ -8,12 +8,16 @@ class FilterObject extends Fayde.MVVM.ObservableObject {
 
     constructor(source: Fayde.Collections.DeepObservableCollection<TodoItem>) {
         super();
-        var items = new Fayde.Collections.FilteredCollection<TodoItem>((item: TodoItem) => {
-            if (this.IsActive) return !item.IsComplete;
-            if (this.IsCompleted) return item.IsComplete;
-            return true;
-        }, source);
+        var items = new Fayde.Collections.FilteredCollection<TodoItem>((item: TodoItem) => this.FilterItem(item), source);
         Object.defineProperty(this, "Items", { value: items, writable: false });
+    }
+
+    FilterItem(item: any): boolean {
+        if (this.IsActive)
+            return !item.IsComplete;
+        if (this.IsCompleted)
+            return item.IsComplete;
+        return true;
     }
 
     OnPropertyChanged(propertyName: string) {
