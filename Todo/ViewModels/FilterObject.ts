@@ -22,14 +22,8 @@ class FilterObject extends Fayde.MVVM.ObservableObject {
 
     OnPropertyChanged(propertyName: string) {
         super.OnPropertyChanged(propertyName);
-        switch (propertyName) {
-            case "IsAll":
-            case "IsActive":
-            case "IsCompleted":
-                if (this.Items)
-                    this.Items.Update();
-                break;
-        }
+        if (this.Items)
+            this.Items.Update();
     }
 }
 Fayde.MVVM.NotifyProperties(FilterObject, ["IsAll", "IsActive", "IsCompleted"]);
