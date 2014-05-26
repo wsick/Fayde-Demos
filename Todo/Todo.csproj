@@ -71,6 +71,7 @@
     <Content Include="lib\requirejs\require.d.ts" />
     <Content Include="lib\requirejs\require.js" />
     <Content Include="lib\requirejs\text.js" />
+    <TypeScriptCompile Include="MVVM\FilterObject.ts" />
     <Content Include="web.config" />
     <Content Include="default.fap">
       <SubType>Designer</SubType>

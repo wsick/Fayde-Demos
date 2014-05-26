@@ -1,10 +1,11 @@
 ﻿/// <reference path="../lib/Fayde/Fayde.d.ts" />
 
 import TodoItem = require("../Models/TodoItem");
+import FilterObject = require("../MVVM/FilterObject");
 
 class MainViewModel extends Fayde.MVVM.ViewModelBase {
     Items = new Fayde.Collections.DeepObservableCollection<TodoItem>();
-    FilteredItems = new Fayde.Collections.DeepObservableCollection<TodoItem>();
+    Filter: FilterObject;
     ActiveText = "";
     IsAllFilter = true;
     IsActiveFilter = false;
@@ -13,6 +14,11 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     constructor() {
         super();
         this.Items.ItemPropertyChanged.Subscribe(this._OnItemPropertyChanged, this);
+        this.Filter = new FilterObject(this.Items, (item: TodoItem) => {
+            if (this.IsActiveFilter) return !item.IsComplete;
+            if (this.IsCompletedFilter) return item.IsComplete;
+            return true;
+        });
     }
     
     get NumItemsLeft(): number {
@@ -27,7 +33,6 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     private _OnItemPropertyChanged(sender: any, e: Fayde.Collections.ItemPropertyChangedEventArgs<TodoItem>) {
         this.OnPropertyChanged("NumItemsLeft");
         this.OnPropertyChanged("IsAllComplete");
-        this.UpdateFilter();
     }
 
     get IsAllComplete(): boolean {
@@ -53,22 +58,9 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
         var item = new TodoItem();
         item.Text = this.ActiveText;
         this.Items.Add(item);
-        if (this.IsAllFilter || this.IsActiveFilter)
-            this.FilteredItems.Add(item);
         this.ActiveText = "";
         this.OnPropertyChanged("NumItemsLeft");
         this.OnPropertyChanged("IsAllComplete");
-    }
-
-    UpdateFilter() {
-        this.FilteredItems.Clear();
-        if (this.IsAllFilter) {
-            this.FilteredItems.AddRange(this.Items.ToArray());
-        } else if (this.IsActiveFilter) {
-            this.FilteredItems.AddRange(this.Items.ToArray().filter(i => !i.IsComplete));
-        } else if (this.IsCompletedFilter) {
-            this.FilteredItems.AddRange(this.Items.ToArray().filter(i => i.IsComplete));
-        }
     }
 
     OnPropertyChanged(propertyName: string) {
@@ -77,7 +69,8 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
             case "IsAllFilter":
             case "IsActiveFilter":
             case "IsCompletedFilter":
-                this.UpdateFilter();
+                if (this.Filter)
+                    this.Filter.Update();
                 break;
         }
     }

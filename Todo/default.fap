@@ -42,7 +42,7 @@
                                              Text="{Binding ActiveText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="{EventBinding AddTodo}" />
                                 </Grid>
                             </Border>
-                            <ItemsControl ItemsSource="{Binding FilteredItems}">
+                            <ItemsControl ItemsSource="{Binding Filter.Items}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border BorderBrush="#BBBBBB" BorderThickness="0,1,0,0">
