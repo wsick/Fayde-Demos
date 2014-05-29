@@ -33,19 +33,19 @@
             <exp:SelectedRowAdorner Background="#B2E0F4" />
         </exp:GridItemsControl.Adorners>
         <exp:GridTemplateColumn>
-            <exp:GridTemplateColumn.CellTemplate>
+            <exp:GridTemplateColumn.DisplayTemplate>
                 <DataTemplate>
-                    <Image Source="img/edit.png" Width="16" Height="16" MouseLeftButtonDown="{EventBinding Command={Binding Path=EditCommand, RelativeSource={RelativeSource ItemsControlParent}}, CommandParameter={Binding}}" />
+                    <Image Cursor="Hand" Source="img/edit.png" Width="16" Height="16" MouseLeftButtonDown="{EventBinding Command={Binding Path=ToggleEditCommand, RelativeSource={RelativeSource ItemsControlParent}}, CommandParameter={Binding}}" />
                 </DataTemplate>
-            </exp:GridTemplateColumn.CellTemplate>
+            </exp:GridTemplateColumn.DisplayTemplate>
         </exp:GridTemplateColumn>
-        <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource weekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Date, Converter={StaticResource dayOfWeekConverter}}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Date, StringFormat='{0:d}'}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Start, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding End, StringFormat='{0:h\:mm}'}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Hours, StringFormat='{0:n2}'}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Rate, StringFormat='{0:n2}'}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" Binding="{Binding Revenue, StringFormat={0:c2}}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource weekConverter}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource dayOfWeekConverter}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Date" StringFormat="{0:d}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Start" StringFormat="{0:h\:mm}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="End" StringFormat="{0:h\:mm}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Hours" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Revenue" StringFormat="{0:c2}" CellStyle="{StaticResource GridCellStyle}" />
     </exp:GridItemsControl>
 </Grid>
