@@ -35,17 +35,18 @@
         <exp:GridTemplateColumn>
             <exp:GridTemplateColumn.DisplayTemplate>
                 <DataTemplate>
-                    <Image Cursor="Hand" Source="img/edit.png" Width="16" Height="16" MouseLeftButtonDown="{EventBinding Command={Binding Path=ToggleEditCommand, RelativeSource={RelativeSource ItemsControlParent}}, CommandParameter={Binding}}" />
+                    <Image Cursor="Hand" Width="16" Height="16" Source="img/edit.png"
+                           MouseLeftButtonDown="{EventBinding Command={Binding Path=ToggleEditCommand, RelativeSource={RelativeSource ItemsControlParent}}, CommandParameter={Binding}}" />
                 </DataTemplate>
             </exp:GridTemplateColumn.DisplayTemplate>
         </exp:GridTemplateColumn>
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource weekConverter}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource dayOfWeekConverter}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Date" StringFormat="{0:d}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Start" StringFormat="{0:h\:mm}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="End" StringFormat="{0:h\:mm}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridDateColumn Width="*" IsEditable="true" DisplayMemberPath="Date" StringFormat="{0:d}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Start" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="End" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Hours" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridNumericColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" DecimalPlaces="2" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Revenue" StringFormat="{0:c2}" CellStyle="{StaticResource GridCellStyle}" />
     </exp:GridItemsControl>
 </Grid>
