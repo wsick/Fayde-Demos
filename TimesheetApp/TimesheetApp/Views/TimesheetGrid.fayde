@@ -43,8 +43,8 @@
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource weekConverter}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Date" Converter="{StaticResource dayOfWeekConverter}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridDateColumn Width="*" IsEditable="true" DisplayMemberPath="Date" StringFormat="{0:d}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="Start" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridTextColumn Width="*" IsEditable="true" DisplayMemberPath="End" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTimeColumn Width="*" IsEditable="true" DisplayMemberPath="Start" StringFormat="{0:hh\:mm}" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridTimeColumn Width="*" IsEditable="true" DisplayMemberPath="End" StringFormat="{0:hh\:mm}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Hours" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridNumericColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" DecimalPlaces="2" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Revenue" StringFormat="{0:c2}" CellStyle="{StaticResource GridCellStyle}" />
