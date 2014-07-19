@@ -227,3 +227,5 @@ NflDraft/Resources/TimeValueConverter.js
 NflDraft/Resources/TimeValueConverter.js.map
 NflDraft/ViewModels/DefaultViewModel.js
 NflDraft/ViewModels/DefaultViewModel.js.map
+DrawingSurface/Controls/DrawingPad.js
+DrawingSurface/Controls/DrawingPad.js.map
