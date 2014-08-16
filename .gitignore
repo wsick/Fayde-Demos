@@ -245,3 +245,12 @@ Todo/app/ViewModels/FilterObject.js
 Todo/app/ViewModels/FilterObject.js.map
 Todo/app/ViewModels/MainViewModel.js
 Todo/app/ViewModels/MainViewModel.js.map
+TimesheetApp/app/lib/
+TimesheetApp/app/Models/Entry.js
+TimesheetApp/app/Models/Entry.js.map
+TimesheetApp/app/Resources/DayOfWeekConverter.js
+TimesheetApp/app/Resources/DayOfWeekConverter.js.map
+TimesheetApp/app/Resources/WeekConverter.js
+TimesheetApp/app/Resources/WeekConverter.js.map
+TimesheetApp/app/ViewModels/MainViewModel.js
+TimesheetApp/app/ViewModels/MainViewModel.js.map

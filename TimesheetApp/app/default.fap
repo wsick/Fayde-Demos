@@ -1,9 +1,9 @@
 <Application
-    xmlns="http://schemas.wsick.com/fayde"
-    xmlns:x="http://schemas.wsick.com/fayde/x"
-    xmlns:vms="ViewModels"
-    xmlns:views="Views"
-    Theme="Metro">
+        xmlns="http://schemas.wsick.com/fayde"
+        xmlns:x="http://schemas.wsick.com/fayde/x"
+        xmlns:vms="ViewModels"
+        xmlns:views="Views"
+        Theme="Metro">
     <Application.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="'Helvetica Nueue', Helvetica, Arial, sans-serif" />
