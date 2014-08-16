@@ -1,10 +1,10 @@
-import FantasyTeam = require("Models/FantasyTeam");
-import Round = require("Models/Round");
-import FantasyPlayer = require("Models/FantasyPlayer");
-import FantasyPosition = require("Models/FantasyPosition");
-import Team = require("Models/Team");
-import DraftSpot = require("Models/DraftSpot");
-import Stats = require("Models/Stats");
+import FantasyTeam = require("../Models/FantasyTeam");
+import Round = require("../Models/Round");
+import FantasyPlayer = require("../Models/FantasyPlayer");
+import FantasyPosition = require("../Models/FantasyPosition");
+import Team = require("../Models/Team");
+import DraftSpot = require("../Models/DraftSpot");
+import Stats = require("../Models/Stats");
 
 class DemoNflDataProvider {
     private _fantasyTeams: FantasyTeam[];
