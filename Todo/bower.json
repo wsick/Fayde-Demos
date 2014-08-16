@@ -1,9 +1,9 @@
 {
-    "name": "Todo",
-    "version": "0.1.0",
-    "dependencies": {
-        "requirejs": "*",
-        "requirejs-text": "*",
-        "fayde": "*"
-    }
+  "name": "Todo",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs": "*",
+    "requirejs-text": "*",
+    "fayde": "*"
+  }
 }
