@@ -235,3 +235,6 @@ ControlsShowcase/ViewModels/MainViewModel.js.map
 ControlsShowcase/app/lib/
 ControlsShowcase/app/ViewModels/MainViewModel.js
 ControlsShowcase/app/ViewModels/MainViewModel.js.map
+DrawingSurface/app/lib/
+DrawingSurface/app/Controls/DrawingPad.js
+DrawingSurface/app/Controls/DrawingPad.js.map
