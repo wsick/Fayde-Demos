@@ -1,4 +1,4 @@
-/// <reference path="../lib/Fayde/Fayde.d.ts" />
+/// <reference path="../lib/fayde/Fayde.d.ts" />
 
 class DrawingFinger {
     Device: Fayde.Input.ITouchDevice;
