@@ -1,0 +1,10 @@
+{
+  "name": "ControlsShowcase",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs": "*",
+    "requirejs-text": "*",
+    "fayde": "*",
+    "fayde.controls": "~0.10.0"
+  }
+}
