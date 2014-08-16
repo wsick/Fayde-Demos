@@ -40,7 +40,7 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     port: ports.server,
-                    base: '<%= dirs.app %>/',
+                    base: dirs.app,
                     middleware: function (connect) {
                         return [
                             connect_livereload({ port: ports.livereload }),
