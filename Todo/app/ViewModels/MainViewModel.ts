@@ -1,4 +1,4 @@
-﻿/// <reference path="../lib/Fayde/Fayde.d.ts" />
+﻿/// <reference path="../lib/fayde/Fayde.d.ts" />
 
 import TodoItem = require("../Models/TodoItem");
 import FilterObject = require("../ViewModels/FilterObject");
@@ -16,7 +16,7 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     
     get NumItemsLeft(): number {
         var count = 0;
-        var enumerator = this.Items.GetEnumerator();
+        var enumerator = this.Items.getEnumerator();
         while (enumerator.MoveNext()) {
             if (!enumerator.Current.IsComplete)
                 count++;
@@ -29,7 +29,7 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     }
 
     get IsAllComplete(): boolean {
-        var enumerator = this.Items.GetEnumerator();
+        var enumerator = this.Items.getEnumerator();
         while (enumerator.MoveNext()) {
             if (!enumerator.Current.IsComplete)
                 return false;
@@ -37,7 +37,7 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
         return this.Items.Count > 0;
     }
     set IsAllComplete(value: boolean) {
-        var enumerator = this.Items.GetEnumerator();
+        var enumerator = this.Items.getEnumerator();
         while (enumerator.MoveNext()) {
             enumerator.Current.IsComplete = value;
         }
