@@ -239,3 +239,9 @@ DrawingSurface/app/lib/
 DrawingSurface/app/Controls/DrawingPad.js
 DrawingSurface/app/Controls/DrawingPad.js.map
 Todo/app/lib/
+Todo/app/Models/TodoItem.js
+Todo/app/Models/TodoItem.js.map
+Todo/app/ViewModels/FilterObject.js
+Todo/app/ViewModels/FilterObject.js.map
+Todo/app/ViewModels/MainViewModel.js
+Todo/app/ViewModels/MainViewModel.js.map

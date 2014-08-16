@@ -17,8 +17,8 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     get NumItemsLeft(): number {
         var count = 0;
         var enumerator = this.Items.getEnumerator();
-        while (enumerator.MoveNext()) {
-            if (!enumerator.Current.IsComplete)
+        while (enumerator.moveNext()) {
+            if (!enumerator.current.IsComplete)
                 count++;
         }
         return count;
@@ -30,16 +30,16 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
 
     get IsAllComplete(): boolean {
         var enumerator = this.Items.getEnumerator();
-        while (enumerator.MoveNext()) {
-            if (!enumerator.Current.IsComplete)
+        while (enumerator.moveNext()) {
+            if (!enumerator.current.IsComplete)
                 return false;
         }
         return this.Items.Count > 0;
     }
     set IsAllComplete(value: boolean) {
         var enumerator = this.Items.getEnumerator();
-        while (enumerator.MoveNext()) {
-            enumerator.Current.IsComplete = value;
+        while (enumerator.moveNext()) {
+            enumerator.current.IsComplete = value;
         }
     }
 
