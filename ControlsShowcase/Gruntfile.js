@@ -1,3 +1,6 @@
+var path = require('path'),
+    connect_livereload = require('connect-livereload');
+
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -9,12 +12,24 @@ module.exports = function (grunt) {
         livereload: 35353
     };
 
+    var dirs = {
+        app: 'app',
+        build: 'app/.build'
+    };
+
+    function mount(connect, dir) {
+        return connect.static(path.resolve(dir));
+    }
+
     grunt.initConfig({
         ports: ports,
+        dirs: dirs,
         typescript: {
             build: {
-                src: ['app/**/*.ts', '!app/lib/**/*.ts'],
+                src: ['<%= dirs.app %>/**/*.ts', '!<%= dirs.app %>/lib/**/*.ts'],
+                dest: '<%= dirs.build %>',
                 options: {
+                    basePath: dirs.app,
                     module: 'amd',
                     target: 'es5',
                     sourceMap: true
@@ -25,7 +40,14 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     port: ports.server,
-                    base: './app/'
+                    base: dirs.app,
+                    middleware: function (connect) {
+                        return [
+                            connect_livereload({ port: ports.livereload }),
+                            mount(connect, dirs.build),
+                            mount(connect, dirs.app)
+                        ];
+                    }
                 }
             }
         },
@@ -36,14 +58,14 @@ module.exports = function (grunt) {
         },
         watch: {
             src: {
-                files: ['app/**/*.ts'],
+                files: ['<%= dirs.app %>/**/*.ts'],
                 tasks: ['typescript:build'],
                 options: {
                     livereload: ports.livereload
                 }
             },
             views: {
-                files: ['app/**/*.fap', 'app/**/*.fayde'],
+                files: ['<%= dirs.app %>/**/*.fap', '<%= dirs.app %>/**/*.fayde'],
                 options: {
                     livereload: ports.livereload
                 }
