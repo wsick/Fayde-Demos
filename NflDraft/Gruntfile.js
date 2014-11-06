@@ -8,8 +8,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-open');
 
     var ports = {
-        server: 8000,
-        livereload: 35353
+        server: 8003,
+        livereload: 35355
     };
 
     var dirs = {
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         dirs: dirs,
         typescript: {
             build: {
-                src: ['<%= dirs.app %>/**/*.ts', '!<%= dirs.app %>/lib/**/*.ts'],
+                src: ['<%= dirs.app %>/**/*.ts', '!<%= dirs.app %>/lib/**/*.ts', '<%= dirs.app %>/lib/**/*.d.ts'],
                 dest: '<%= dirs.build %>',
                 options: {
                     basePath: dirs.app,

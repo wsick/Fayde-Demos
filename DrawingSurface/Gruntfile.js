@@ -8,8 +8,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-open');
 
     var ports = {
-        server: 8000,
-        livereload: 35353
+        server: 8002,
+        livereload: 35354
     };
 
     var dirs = {
