@@ -26,7 +26,12 @@ module.exports = function (grunt) {
         dirs: dirs,
         typescript: {
             build: {
-                src: ['<%= dirs.app %>/**/*.ts', '!<%= dirs.app %>/lib/**/*.ts'],
+                src: [
+                    '<%= dirs.app %>/**/*.ts',
+                    '!<%= dirs.app %>/lib/**/*.ts',
+                    '<%= dirs.app %>/lib/minerva/minerva.d.ts',
+                    '<%= dirs.app %>/lib/fayde/fayde.d.ts'
+                ],
                 dest: '<%= dirs.build %>',
                 options: {
                     basePath: dirs.app,
