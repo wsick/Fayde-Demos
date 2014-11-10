@@ -14,7 +14,8 @@ module.exports = function (grunt) {
 
     var dirs = {
         app: 'app',
-        build: 'app/.build'
+        build: 'app/.build',
+        lib: 'app/lib'
     };
 
     function mount(connect, dir) {
@@ -26,7 +27,12 @@ module.exports = function (grunt) {
         dirs: dirs,
         typescript: {
             build: {
-                src: ['<%= dirs.app %>/**/*.ts', '!<%= dirs.app %>/lib/**/*.ts'],
+                src: [
+                    '<%= dirs.app %>/**/*.ts',
+                    '!<%= dirs.lib %>/**/*.ts',
+                    '<%= dirs.lib %>/minerva/minerva.d.ts',
+                    '<%= dirs.lib %>/fayde/fayde.d.ts'
+                ],
                 dest: '<%= dirs.build %>',
                 options: {
                     basePath: dirs.app,
@@ -58,7 +64,10 @@ module.exports = function (grunt) {
         },
         watch: {
             src: {
-                files: ['<%= dirs.app %>/**/*.ts'],
+                files: [
+                    '<%= dirs.app %>/**/*.ts',
+                    '!<%= dirs.lib %>/**/*.ts'
+                ],
                 tasks: ['typescript:build'],
                 options: {
                     livereload: ports.livereload

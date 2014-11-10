@@ -2,7 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <script src="require-config.js"></script>
+    <script src="lib/minerva/minerva.js"></script>
+    <script src="lib/fayde/fayde.js"></script>
+    <script type="text/javascript">
+        var require = {
+            baseUrl: "./",
+            paths: {
+                "text": "lib/requirejs-text/text"
+            },
+            deps: ["text", "text!fayde.json"],
+            callback: function (text, config) {
+                Fayde.Bootstrap();
+            }
+        };
+    </script>
     <script src="lib/requirejs/require.js"></script>
     <style>
         * {
@@ -20,7 +33,7 @@
         }
     </style>
 </head>
-<body faydeapp="default.fap">
+<body fayde-app="default.fap">
 <script src="//localhost:35353/livereload.js"></script>
 </body>
 </html>
