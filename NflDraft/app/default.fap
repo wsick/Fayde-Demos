@@ -153,133 +153,137 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Border x:Name="PlayerProfile" Margin="0, 0, 0, 10" DataContext="{Binding SelectedPlayer}" BorderThickness="0, 0, 0, 1" BorderBrush="Black">
-                    <Border.Background>
-                        <ImageBrush ImageSource="Images/footballfield.png" AlignmentY="Bottom" Stretch="None"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="220"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Margin="0" Width="200" VerticalAlignment="Bottom" Source="{Binding Headshot}"/>
-                        <Border Grid.Column="1" Margin="-10, 10, 0, 10" Background="#44E0E0E0" BorderBrush="#E0E0E0" BorderThickness="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.RowSpan="6" VerticalAlignment="Top" Margin="10, 2, 0, 0" Width="60" Source="{Binding Team.Logo}">
-                                    <Image.Effect>
-                                        <DropShadowEffect BlurRadius="3" ShadowDepth="3" Color="Black"/>
-                                    </Image.Effect>
-                                </Image>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10, 10, 0, 0" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Foreground="White" Text="{Binding Name}" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10, 2, 0, 0" FontSize="14" Foreground="White" Text="{Binding Team.FullName}" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Margin="10, 2, 0, 0" FontSize="12" Foreground="White" Text="Birthdate:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="2" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Birthdate, Converter={StaticResource dateValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Age:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="3" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Birthdate, Converter={StaticResource ageValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Height:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="4" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Height}" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="5" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Weight:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
-                                <TextBlock Grid.Row="5" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Weight}" Style="{StaticResource DeepTextShadow}"/>
-                                <Button Grid.Row="6" Grid.ColumnSpan="3" Margin="10" Content="Draft Player" Command="{Binding ElementName=LayoutRoot, Path=DataContext.DraftPlayerCommand}">
-                                    <Button.Effect>
-                                        <DropShadowEffect BlurRadius="1" ShadowDepth="3" Color="Black"/>
-                                    </Button.Effect>
-                                </Button>
-                            </Grid>
-                        </Border>
-                        <Border Grid.Column="2" Margin="10, 10, 10, 10" Background="#44E0E0E0" BorderBrush="#E0E0E0" BorderThickness="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <StackPanel Margin="5, 5, 5, 0" Orientation="Horizontal">
-                                    <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Passing}">
-                                        <TextBlock Width="40" Text="COM" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="40" Text="ATT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="40" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="40" Text="INT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                <Grid Margin="0,0,0,10">
+                    <Border Height="120" VerticalAlignment="Bottom">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Images/footballfield.png" Stretch="Fill" />
+                        </Border.Background>
+                    </Border>
+                    <Border x:Name="PlayerProfile" DataContext="{Binding SelectedPlayer}" BorderThickness="0, 0, 0, 1" BorderBrush="Black">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="220"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Margin="0" Width="200" VerticalAlignment="Bottom" Source="{Binding Headshot}"/>
+                            <Border Grid.Column="1" Margin="-10, 10, 0, 10" Background="#44E0E0E0" BorderBrush="#E0E0E0" BorderThickness="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="6" VerticalAlignment="Top" Margin="10, 2, 0, 0" Width="60" Source="{Binding Team.Logo}">
+                                        <Image.Effect>
+                                            <DropShadowEffect BlurRadius="3" ShadowDepth="3" Color="Black"/>
+                                        </Image.Effect>
+                                    </Image>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10, 10, 0, 0" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Foreground="White" Text="{Binding Name}" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10, 2, 0, 0" FontSize="14" Foreground="White" Text="{Binding Team.FullName}" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Margin="10, 2, 0, 0" FontSize="12" Foreground="White" Text="Birthdate:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Birthdate, Converter={StaticResource dateValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Age:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Birthdate, Converter={StaticResource ageValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Height:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Height}" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="1" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="Weight:" HorizontalAlignment="Right" Style="{StaticResource DeepTextShadow}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="2" Margin="5, 2, 0, 0" FontSize="12" Foreground="White" Text="{Binding Weight}" Style="{StaticResource DeepTextShadow}"/>
+                                    <Button Grid.Row="6" Grid.ColumnSpan="3" Margin="10" Content="Draft Player" Command="{Binding ElementName=LayoutRoot, Path=DataContext.DraftPlayerCommand}">
+                                        <Button.Effect>
+                                            <DropShadowEffect BlurRadius="1" ShadowDepth="3" Color="Black"/>
+                                        </Button.Effect>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="2" Margin="10, 10, 10, 10" Background="#44E0E0E0" BorderBrush="#E0E0E0" BorderThickness="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Margin="5, 5, 5, 0" Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Passing}">
+                                            <TextBlock Width="40" Text="COM" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="40" Text="ATT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="40" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="40" Text="INT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Rushing}">
+                                            <TextBlock Width="30" Text="G" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="40" Text="ATT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="AVG" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="30" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="40" Text="FUM" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Receiving}">
+                                            <TextBlock Width="40" Text="REC" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="TGTS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="50" Text="AVG" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                            <TextBlock Width="30" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
+                                        </StackPanel>
+
+                                        <TextBlock Width="70" Text="PTS" Padding="0, 0, 5, 0" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}"/>
                                     </StackPanel>
+                                    <ListBox Grid.Row="1" Margin="5" ItemsSource="{Binding Stats}" Background="Transparent" BorderThickness="0" Padding="0">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="ListBoxItem">
+                                                <Setter Property="Padding" Value="0"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Passing}">
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Completions}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding PassingAttempts}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding PassingYards}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding PassingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Interceptions}" Style="{StaticResource DeepTextShadow}" />
+                                                    </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Rushing}">
-                                        <TextBlock Width="30" Text="G" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="40" Text="ATT" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="AVG" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="30" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="40" Text="FUM" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Rushing}">
+                                                        <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding GamesPlayed}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding RushingAttempts}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding RushingYards}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding RushingAverage, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding RushingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding FumblesLost}" Style="{StaticResource DeepTextShadow}" />
+                                                    </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Visibility="{Binding Path=., Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Receiving}">
-                                        <TextBlock Width="40" Text="REC" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="TGTS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="YDS" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="50" Text="AVG" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                        <TextBlock Width="30" Text="TD" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}" />
-                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Receiving}">
+                                                        <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Receptions}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding Targets}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding ReceivingYards}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding ReceivingAverage, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}" />
+                                                        <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding ReceivingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
+                                                    </StackPanel>
 
-                                    <TextBlock Width="70" Text="PTS" Padding="0, 0, 5, 0" TextAlignment="Right" FontWeight="Bold" Foreground="White" Style="{StaticResource DeepTextShadow}"/>
-                                </StackPanel>
-                                <ListBox Grid.Row="1" Margin="5" ItemsSource="{Binding Stats}" Background="Transparent" BorderThickness="0" Padding="0">
-                                    <ListBox.ItemContainerStyle>
-                                        <Style TargetType="ListBoxItem">
-                                            <Setter Property="Padding" Value="0"/>
-                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                        </Style>
-                                    </ListBox.ItemContainerStyle>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Passing}">
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Completions}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding PassingAttempts}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding PassingYards}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding PassingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Interceptions}" Style="{StaticResource DeepTextShadow}" />
+                                                    <TextBlock TextAlignment="Right" Width="70" Padding="0, 0, 5, 0" FontSize="12" Foreground="White" Text="{Binding FantasyPoints, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
                                                 </StackPanel>
-
-                                                <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Rushing}">
-                                                    <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding GamesPlayed}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding RushingAttempts}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding RushingYards}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding RushingAverage, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding RushingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding FumblesLost}" Style="{StaticResource DeepTextShadow}" />
-                                                </StackPanel>
-
-                                                <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=ListBox}, Path=DataContext, Converter={StaticResource statVisibilityValueConverter}, ConverterParameter=Receiving}">
-                                                    <TextBlock TextAlignment="Right" Width="40" FontSize="12" Foreground="White" Text="{Binding Receptions}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding Targets}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding ReceivingYards}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="50" FontSize="12" Foreground="White" Text="{Binding ReceivingAverage, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}" />
-                                                    <TextBlock TextAlignment="Right" Width="30" FontSize="12" Foreground="White" Text="{Binding ReceivingTouchdowns}" Style="{StaticResource DeepTextShadow}" />
-                                                </StackPanel>
-
-                                                <TextBlock TextAlignment="Right" Width="70" Padding="0, 0, 5, 0" FontSize="12" Foreground="White" Text="{Binding FantasyPoints, Converter={StaticResource doubleValueConverter}}" Style="{StaticResource DeepTextShadow}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                </Border>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
                 <Border Grid.Row="1" Background="#E0E0E0" CornerRadius="3, 3, 0, 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
