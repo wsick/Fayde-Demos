@@ -30,10 +30,11 @@ module.exports = function (grunt) {
                 src: [
                     '<%= dirs.app %>/**/*.ts',
                     '!<%= dirs.lib %>/**/*.ts',
-                    '<%= dirs.lib %>/minerva/minerva.d.ts',
-                    '<%= dirs.lib %>/fayde/fayde.d.ts'
+                    '<%= dirs.lib %>/nullstone/dist/nullstone.d.ts',
+                    '<%= dirs.lib %>/minerva/dist/minerva.d.ts',
+                    '<%= dirs.lib %>/fayde/dist/fayde.d.ts'
                 ],
-                dest: '<%= dirs.build %>',
+                dest: dirs.build,
                 options: {
                     basePath: dirs.app,
                     module: 'amd',
@@ -74,7 +75,10 @@ module.exports = function (grunt) {
                 }
             },
             views: {
-                files: ['<%= dirs.app %>/**/*.fap', '<%= dirs.app %>/**/*.fayde'],
+                files: [
+                    '<%= dirs.app %>/**/*.fap',
+                    '<%= dirs.app %>/**/*.fayde'
+                ],
                 options: {
                     livereload: ports.livereload
                 }

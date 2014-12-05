@@ -2,8 +2,8 @@
   "name": "ControlsShowcase",
   "version": "0.1.0",
   "dependencies": {
-    "fayde": "~0.13.0",
-    "fayde.controls": "~0.13.0",
-    "exjs": "~0.2.1"
+    "fayde": "~0.14.0",
+    "fayde.controls": "~0.14.0",
+    "exjs": "~0.2.2"
   }
 }
