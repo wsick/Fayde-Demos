@@ -1,6 +1,4 @@
-﻿/// <reference path="../lib/fayde/Fayde.d.ts" />
-
-import TodoItem = require("../Models/TodoItem");
+﻿import TodoItem = require("../Models/TodoItem");
 import FilterObject = require("../ViewModels/FilterObject");
 
 class MainViewModel extends Fayde.MVVM.ViewModelBase {
@@ -11,7 +9,7 @@ class MainViewModel extends Fayde.MVVM.ViewModelBase {
     constructor() {
         super();
         Object.defineProperty(this, "Filter", { value: new FilterObject(this.Items), writable: false });
-        this.Items.ItemPropertyChanged.Subscribe(this._OnItemPropertyChanged, this);
+        this.Items.ItemPropertyChanged.on(this._OnItemPropertyChanged, this);
     }
     
     get NumItemsLeft(): number {
