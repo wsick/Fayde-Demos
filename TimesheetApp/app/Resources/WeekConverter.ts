@@ -18,5 +18,5 @@
         throw new Error("NotImplemented");
     }
 }
-Fayde.RegisterTypeInterfaces(WeekConverter, Fayde.Data.IValueConverter_);
+nullstone.addTypeInterfaces(WeekConverter, Fayde.Data.IValueConverter_);
 export = WeekConverter;

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.wsick.com/fayde/x"
         xmlns:vms="ViewModels"
         xmlns:views="Views"
-        Theme="Metro">
+        ThemeName="Metro">
     <Application.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="'Helvetica Nueue', Helvetica, Arial, sans-serif" />
