@@ -2,7 +2,6 @@
   "name": "DrawingSurface",
   "version": "0.1.0",
   "dependencies": {
-    "fayde": "~0.13.0",
-    "fayde.controls": "~0.10.0"
+    "fayde": "~0.14.0"
   }
 }
