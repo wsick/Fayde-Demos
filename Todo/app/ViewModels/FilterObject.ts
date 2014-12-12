@@ -1,18 +1,21 @@
 ﻿import TodoItem = require("../Models/TodoItem");
+import MVVM = Fayde.MVVM;
+import FilteredCollection = Fayde.Collections.FilteredCollection;
+import DeepObservableCollection = Fayde.Collections.DeepObservableCollection;
 
-class FilterObject extends Fayde.MVVM.ObservableObject {
-    Items: Fayde.Collections.FilteredCollection<TodoItem>;
+class FilterObject extends MVVM.ObservableObject {
+    Items: FilteredCollection<TodoItem>;
     IsAll = true;
     IsActive = false;
     IsCompleted = false;
 
-    constructor(source: Fayde.Collections.DeepObservableCollection<TodoItem>) {
+    constructor (source: DeepObservableCollection<TodoItem>) {
         super();
-        var items = new Fayde.Collections.FilteredCollection<TodoItem>((item: TodoItem) => this.FilterItem(item), source);
-        Object.defineProperty(this, "Items", { value: items, writable: false });
+        var items = new FilteredCollection<TodoItem>(item => this.FilterItem(item), source);
+        Object.defineProperty(this, "Items", {value: items, writable: false});
     }
 
-    FilterItem(item: any): boolean {
+    FilterItem (item: TodoItem): boolean {
         if (this.IsActive)
             return !item.IsComplete;
         if (this.IsCompleted)
@@ -20,11 +23,11 @@ class FilterObject extends Fayde.MVVM.ObservableObject {
         return true;
     }
 
-    OnPropertyChanged(propertyName: string) {
+    OnPropertyChanged (propertyName: string) {
         super.OnPropertyChanged(propertyName);
         if (this.Items)
             this.Items.Update();
     }
 }
-Fayde.MVVM.NotifyProperties(FilterObject, ["IsAll", "IsActive", "IsCompleted"]);
+MVVM.NotifyProperties(FilterObject, ["IsAll", "IsActive", "IsCompleted"]);
 export = FilterObject; 
