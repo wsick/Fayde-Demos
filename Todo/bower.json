@@ -2,7 +2,7 @@
   "name": "Todo",
   "version": "0.1.0",
   "dependencies": {
-    "fayde": "~0.15.0",
+    "fayde": "~0.15.2",
     "exjs": "~0.2.5"
   }
 }
