@@ -32,7 +32,8 @@ module.exports = function (grunt) {
                     '!<%= dirs.lib %>/**/*.ts',
                     '<%= dirs.lib %>/nullstone/dist/nullstone.d.ts',
                     '<%= dirs.lib %>/minerva/dist/minerva.d.ts',
-                    '<%= dirs.lib %>/fayde/dist/fayde.d.ts'
+                    '<%= dirs.lib %>/fayde/dist/fayde.d.ts',
+                    '<%= dirs.lib %>/exjs/dist/ex.d.ts'
                 ],
                 dest: dirs.build,
                 options: {
