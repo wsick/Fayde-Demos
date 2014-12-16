@@ -2,7 +2,7 @@
   "name": "NflDraft",
   "version": "0.1.0",
   "dependencies": {
-    "fayde": "~0.14.0",
+    "fayde": "~0.15.0",
     "exjs": "~0.2.2"
   }
 }
