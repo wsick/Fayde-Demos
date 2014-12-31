@@ -10,5 +10,9 @@
   },
   "themes": {
     "exjs": "none"
+  },
+  "debug": {
+    "warnMissingThemes": false,
+    "warnBrokenPath": false
   }
 }
