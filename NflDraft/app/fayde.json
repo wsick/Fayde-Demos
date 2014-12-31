@@ -10,5 +10,9 @@
     "http://schemas.wsick.com/fayde": {
       "path": "themes/fayde/<themename>.theme.xml"
     }
+  },
+  "debug": {
+    "warnMissingThemes": false,
+    "warnBrokenPath": false
   }
 }
