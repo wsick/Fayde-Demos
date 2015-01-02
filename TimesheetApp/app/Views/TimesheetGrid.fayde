@@ -46,7 +46,7 @@
         <exp:GridTimeColumn Width="*" IsEditable="true" DisplayMemberPath="Start" StringFormat="{0:hh\:mm}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTimeColumn Width="*" IsEditable="true" DisplayMemberPath="End" StringFormat="{0:hh\:mm}" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Hours" StringFormat="{0:n2}" CellStyle="{StaticResource GridCellStyle}" />
-        <exp:GridNumericColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" DecimalPlaces="2" CellStyle="{StaticResource GridCellStyle}" />
+        <exp:GridNumericColumn Width="*" IsEditable="true" DisplayMemberPath="Rate" StringFormat="{0:c0}/hr" DecimalPlaces="2" CellStyle="{StaticResource GridCellStyle}" />
         <exp:GridTextColumn Width="*" IsEditable="false" DisplayMemberPath="Revenue" StringFormat="{0:c2}" CellStyle="{StaticResource GridCellStyle}" />
     </exp:GridItemsControl>
 </Grid>

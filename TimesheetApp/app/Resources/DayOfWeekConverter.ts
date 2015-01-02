@@ -9,5 +9,5 @@
         throw new Error("NotImplemented");
     }
 }
-nullstone.addTypeInterfaces(DayOfWeekConverter, Fayde.Data.IValueConverter_);
+Fayde.Data.IValueConverter_.mark(DayOfWeekConverter);
 export = DayOfWeekConverter;
