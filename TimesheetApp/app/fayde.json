@@ -8,11 +8,16 @@
       "exports": "Fayde.Controls"
     },
     "Fayde.Experimental": {
-      "exports": "Fayde.Experimental"
+      "exports": "Fayde.Experimental",
+      "deps": [
+        "Fayde.Controls"
+      ]
     }
   },
   "themes": {
-    "exjs": "none"
+    "exjs": "none",
+    "Fayde.Experimental": {},
+    "Fayde.Controls": {}
   },
   "debug": {
     "warnMissingThemes": false,

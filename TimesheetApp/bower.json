@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "fayde": "~0.16.0",
-    "fayde.controls": "~0.16.0",
-    "exjs": "~0.2.6",
-    "fayde.experimental": "~0.5.0"
+    "fayde.controls": "~0.16.2",
+    "exjs": "~0.2.8",
+    "fayde.experimental": "~0.5.1"
   }
 }
