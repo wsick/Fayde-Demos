@@ -1,0 +1,9 @@
+{
+  "name": "ControlsShowcase",
+  "client": {
+    "files": [
+      "app/fayde.json"
+    ]
+  },
+  "type": "app"
+}

@@ -9,7 +9,8 @@
     }
   },
   "themes": {
-    "exjs": "none"
+    "exjs": "none",
+    "Fayde.Controls": {}
   },
   "debug": {
     "warnMissingThemes": false,
