@@ -1,0 +1,9 @@
+{
+  "name": "NflDraft",
+  "client": {
+    "files": [
+      "app/fayde.json"
+    ]
+  },
+  "type": "app"
+}
