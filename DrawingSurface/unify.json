@@ -1,0 +1,9 @@
+{
+  "name": "DrawingSurface",
+  "client": {
+    "files": [
+      "app/fayde.json"
+    ]
+  },
+  "type": "app"
+}
