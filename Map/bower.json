@@ -1,0 +1,9 @@
+{
+  "name": "Map",
+  "version": "0.1.0",
+  "dependencies": {
+    "fayde": "~0.16.15",
+    "exjs": "~0.2.8",
+    "fayde.controls": "~0.16.0"
+  }
+}

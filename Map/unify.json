@@ -1,0 +1,9 @@
+{
+  "name": "Map",
+  "client": {
+    "tests": [
+      "app/fayde.json"
+    ]
+  },
+  "type": "app"
+}
