@@ -1,0 +1,7 @@
+{
+  "name": "svg-path-editor",
+  "version": "0.1.0",
+  "dependencies": {
+    "fayde": "~0.16.18"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "svg-path-examples",
+  "version": "0.1.0",
+  "dependencies": {
+    "fayde": "~0.16.18",
+    "fayde.controls": "~0.17.0"
+  }
+}

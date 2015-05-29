@@ -1,0 +1,34 @@
+<Application
+        xmlns="http://schemas.wsick.com/fayde"
+        xmlns:x="http://schemas.wsick.com/fayde/x"
+        xmlns:vms="ViewModels"
+        xmlns:controls="lib://fayde.controls"
+        ThemeName="Metro">
+    <Application.Resources>
+    </Application.Resources>
+    <Grid x:Name="LayoutRoot">
+        <controls:TabControl Margin="5">
+            <controls:TabItem Header="Straight Line">
+                <ContentControl ContentUri="Views/StraightLine.fayde">
+                    <ContentControl.DataContext>
+                        <vms:StraightLineViewModel />
+                    </ContentControl.DataContext>
+                </ContentControl>
+            </controls:TabItem>
+            <controls:TabItem Header="Cubic Bezier">
+                <ContentControl ContentUri="Views/CubicBezier.fayde">
+                    <ContentControl.DataContext>
+                        <vms:CubicBezierViewModel />
+                    </ContentControl.DataContext>
+                </ContentControl>
+            </controls:TabItem>
+            <controls:TabItem Header="Elliptical Arc">
+                <ContentControl ContentUri="Views/EllipticalArc.fayde">
+                    <ContentControl.DataContext>
+                        <vms:EllipticalArcViewModel />
+                    </ContentControl.DataContext>
+                </ContentControl>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</Application>

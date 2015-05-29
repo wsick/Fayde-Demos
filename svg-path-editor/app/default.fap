@@ -1,0 +1,37 @@
+<Application
+        xmlns="http://schemas.wsick.com/fayde"
+        xmlns:x="http://schemas.wsick.com/fayde/x"
+        xmlns:vms="ViewModels"
+        ThemeName="Metro">
+    <Application.Resources>
+    </Application.Resources>
+    <Grid x:Name="LayoutRoot" ColumnDefinitions="200 * 200" RowDefinitions="Auto *">
+        <Grid.DataContext>
+            <vms:MainViewModel/>
+        </Grid.DataContext>
+        <Border Grid.RowSpan="2" BorderBrush="Gray" BorderThickness="0,0,3,0">
+            <Grid RowDefinitions="Auto *">
+                <TextBlock Text="Presets" HorizontalAlignment="Center" Margin="4" />
+                <ListBox Grid.Row="1" Margin="4" BorderThickness="0" ItemsSource="{Binding Presets}">
+                </ListBox>
+            </Grid>
+        </Border>
+        <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="0,0,0,3">
+            <Grid ColumnDefinitions="Auto *">
+                <TextBlock VerticalAlignment="Center" Text="Data" Margin="4,0" />
+                <TextBox Grid.Column="1" BorderThickness="0" Text="{Binding Path=RawData, Mode=TwoWay, UpdateSourceTrigger=PropertyChange}" />
+            </Grid>
+        </Border>
+        <Canvas Grid.Column="1" Grid.Row="1">
+            <Path Data="{Binding ActivePathData}"
+                  Stroke="Black" StrokeThickness="1" />
+        </Canvas>
+        <Border Grid.Column="2" Grid.RowSpan="2" BorderBrush="Gray" BorderThickness="3,0,0,0">
+            <Grid RowDefinitions="Auto *">
+                <TextBlock Text="Detail" HorizontalAlignment="Center" Margin="4" />
+                <ListBox Grid.Row="1" Margin="4" BorderThickness="0" ItemsSource="{Binding PathDetails}">
+                </ListBox>
+            </Grid>
+        </Border>
+    </Grid>
+</Application>

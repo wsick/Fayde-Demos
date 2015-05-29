@@ -187,3 +187,8 @@ NflDraft/app/lib/
 NflDraft/app/.build/
 Map/app/lib/
 Map/app/.build/
+
+svg-path-examples/app/lib/
+svg-path-examples/app/.build/
+svg-path-editor/app/lib/
+svg-path-editor/app/.build/

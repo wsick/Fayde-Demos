@@ -1,0 +1,16 @@
+<Grid
+    xmlns="http://schemas.wsick.com/fayde"
+    xmlns:x="http://schemas.wsick.com/fayde/x">
+    <Canvas MouseLeftButtonUp="{EventBinding AddPoint}" Background="Transparent">
+        <Path Stroke="Black" StrokeThickness="1">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigure IsClosed="false" IsFilled="true" StartPoint="{Binding StartPoint}" SegmentsSource="{Binding Segments}">
+                        </PathFigure>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+</Grid>

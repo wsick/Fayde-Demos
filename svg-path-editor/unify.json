@@ -1,0 +1,9 @@
+{
+  "name": "svg-path-editor",
+  "client": {
+    "tests": [
+      "app/fayde.json"
+    ]
+  },
+  "type": "app"
+}

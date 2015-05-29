@@ -1,0 +1,14 @@
+{
+  "libs": {
+    "fayde.controls": {
+      "exports": "Fayde.Controls"
+    }
+  },
+  "themes": {
+    "fayde.controls": {}
+  },
+  "debug": {
+    "warnMissingThemes": false,
+    "warnBrokenPath": false
+  }
+}
