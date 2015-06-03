@@ -2,7 +2,7 @@
     xmlns="http://schemas.wsick.com/fayde"
     xmlns:x="http://schemas.wsick.com/fayde/x"
     xmlns:res="Resources"
-    xmlns:exp="lib://Fayde.Experimental">
+    xmlns:exp="lib://fayde.experimental">
     <Grid.Resources>
         <Style x:Key="GridCellStyle" TargetType="exp:GridCell">
             <Setter Property="FontSize" Value="11" />
