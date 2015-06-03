@@ -10,7 +10,12 @@
   },
   "themes": {
     "exjs": "none",
-    "fayde.controls": {}
+    "http://schemas.wsick.com/fayde": {
+      "path": "themes/fayde/Default.theme.xml"
+    },
+    "fayde.controls": {
+      "path": "lib/<libname>/themes/Metro.theme.xml"
+    }
   },
   "debug": {
     "warnMissingThemes": false,
