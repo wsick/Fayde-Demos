@@ -1,7 +1,7 @@
 {
   "name": "NflDraft",
   "client": {
-    "files": [
+    "tests": [
       "app/fayde.json"
     ]
   },
