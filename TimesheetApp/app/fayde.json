@@ -1,23 +1,23 @@
 {
   "libs": {
     "exjs": {
-      "path": "lib/exjs/dist/ex.min",
-      "exports": "exjs"
+      "exports": "exjs",
+      "path": "lib/exjs/dist/ex.min"
     },
-    "Fayde.Controls": {
+    "fayde.controls": {
       "exports": "Fayde.Controls"
     },
-    "Fayde.Experimental": {
+    "fayde.experimental": {
       "exports": "Fayde.Experimental",
       "deps": [
-        "Fayde.Controls"
+        "fayde.controls"
       ]
     }
   },
   "themes": {
     "exjs": "none",
-    "Fayde.Experimental": {},
-    "Fayde.Controls": {}
+    "fayde.controls": {},
+    "fayde.experimental": {}
   },
   "debug": {
     "warnMissingThemes": false,

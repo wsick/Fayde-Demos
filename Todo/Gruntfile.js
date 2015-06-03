@@ -1,11 +1,13 @@
 var path = require('path'),
-    connect_livereload = require('connect-livereload');
+    connect_livereload = require('connect-livereload'),
+    gunify = require('grunt-fayde-unify');
 
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
+    var unify = gunify(grunt);
 
     var ports = {
         server: 8000,
@@ -29,15 +31,11 @@ module.exports = function (grunt) {
             build: {
                 src: [
                     '<%= dirs.app %>/**/*.ts',
-                    '!<%= dirs.lib %>/**/*.ts',
-                    '<%= dirs.lib %>/nullstone/dist/nullstone.d.ts',
-                    '<%= dirs.lib %>/minerva/dist/minerva.d.ts',
-                    '<%= dirs.lib %>/fayde/dist/fayde.d.ts',
-                    '<%= dirs.lib %>/exjs/dist/ex.d.ts'
-                ],
+                    '!<%= dirs.lib %>/**/*.ts'
+                ].concat(unify.typings()),
                 dest: dirs.build,
                 options: {
-                    basePath: dirs.app,
+                    rootDir: dirs.app,
                     module: 'amd',
                     target: 'es5',
                     sourceMap: true

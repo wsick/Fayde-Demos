@@ -2,9 +2,9 @@
   "name": "TimesheetApp",
   "version": "0.1.0",
   "dependencies": {
-    "fayde": "~0.16.0",
-    "fayde.controls": "~0.16.2",
-    "exjs": "~0.2.8",
-    "fayde.experimental": "~0.5.1"
+    "fayde": "~0.16.25",
+    "exjs": "~0.2.10",
+    "fayde.controls": "^0.17.0",
+    "fayde.experimental": "~0.6.1"
   }
 }

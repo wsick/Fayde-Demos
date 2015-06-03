@@ -1,7 +1,7 @@
 <Application
         xmlns="http://schemas.wsick.com/fayde"
         xmlns:x="http://schemas.wsick.com/fayde/x"
-        xmlns:controls="lib://Fayde.Controls"
+        xmlns:controls="lib://fayde.controls"
         xmlns:vms="ViewModels"
         ThemeName="Metro">
     <Application.Resources>

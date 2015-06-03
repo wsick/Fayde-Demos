@@ -1,7 +1,7 @@
 {
   "name": "TimesheetApp",
   "client": {
-    "files": [
+    "tests": [
       "app/fayde.json"
     ]
   },
