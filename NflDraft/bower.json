@@ -2,7 +2,7 @@
   "name": "NflDraft",
   "version": "0.1.0",
   "description": "",
-  "main": "default.html",
+  "main": "index.html",
   "homepage": "http://fayde.io",
   "license": "MIT",
   "private": true,
@@ -10,8 +10,8 @@
     "Scott Sickles <scottsickles@gmail.com>"
   ],
   "dependencies": {
-    "fayde": "~0.19.4",
-    "exjs": "~0.2.10",
+    "fayde": "~0.19.6",
+    "exjs": "~0.3.0",
     "fayde.controls": "^0.17.0"
   }
 }
