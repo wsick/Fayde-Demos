@@ -1,8 +1,13 @@
 {
   "name": "NflDraft",
   "version": "0.1.0",
-  "main": "Gruntfile.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
   "devDependencies": {
+    "electron-packager": "^5.0.1",
+    "electron-prebuilt": "^0.30.2",
     "bower-typings": "^0.1.0",
     "gulp": "^3.8.11",
     "gulp-connect": "^2.2.0",
